@@ -1,0 +1,11 @@
+<form action="pay">
+  Insert amount (eg 10.65)
+  <input type="text" name="amount"> <!-- we are validating this server-side, it would not hurt to do it in JS client-side -->
+  <script src="https://js.stripe.com/v0/"></script>
+  <script>
+    Stripe.configure({
+      pubKey: "your_publishable_key"
+      })
+  </script>
+  <button type="submit">Pay</button>
+</form>
