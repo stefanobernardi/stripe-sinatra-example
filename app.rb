@@ -13,7 +13,6 @@ get "/" do
 end
 
 get "/pay" do
-  puts params
   if is_number?(params[:amount].to_f)
     amount = ((params[:amount].to_f)*100).to_i
     Stripe.api_key = "your_test_API"
