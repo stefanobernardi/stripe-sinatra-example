@@ -23,3 +23,4 @@ Configuration
 
 
 And you're done.
+You can do all kind of cool stuff with these APIs. Check out the docs at https://stripe.com/api/docs 
