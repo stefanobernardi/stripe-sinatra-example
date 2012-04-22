@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'stripe'
 
+Stripe.api_key = "STRIPE_API_PRIVATE_KEY"
 set :views, File.dirname(__FILE__) + "/views"
 
 def is_number?(i)
@@ -12,10 +13,9 @@ get "/" do
   erb :form
 end
 
-get "/pay" do
+post "/pay" do
   if is_number?(params[:amount].to_f)
     amount = ((params[:amount].to_f)*100).to_i
-    Stripe.api_key = "your_test_API"
     @charge = Stripe::Charge.create(
       :amount => amount,
       :currency => "usd",
@@ -23,6 +23,6 @@ get "/pay" do
       :description => "test payment")
     erb :thanks
   else
-    redirect "/pay"
+    redirect "/"
   end
 end
