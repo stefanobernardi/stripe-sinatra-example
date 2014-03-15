@@ -1,1 +1,1 @@
-Thanks for your payment. You have been charged $<%= @charge.amount / 100.0 %> to your <%= @charge.card.type %> ending in <%= @charge.card.last4 %>.
+Thanks for your payment. You have been charged $<%= "%.2f" % (@charge.amount / 100.0) %> to your <%= @charge.card.type %> ending in <%= @charge.card.last4 %>.
